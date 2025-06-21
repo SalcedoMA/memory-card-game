@@ -20,10 +20,28 @@
     height: 20rem;
     width: 18rem;
     object-fit: cover;
+    transition: transform 0.15s ease-in;
 }
 
 .card-image:hover {
-    transform: scale(1.03);
+    transition: transform 0.05s ease-in;
+    transform: scale(1.05);
+    animation: ease-in-out 0.01s shake infinite alternate;
+    animation-delay: 2s;
+}
+
+@keyframes shake {
+  from {
+    transform: scale(1.05) rotate(1deg);
+  }
+
+  to {
+    transform: scale(1.05) rotate(-1deg);
+  }
+}
+
+.card-image:active {
+    filter: invert(1);
 }
 
 /* IF USING REGULAR CARDS (COMMENTED CODE IN CARDS.JSX) */
