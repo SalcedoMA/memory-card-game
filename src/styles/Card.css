@@ -1,0 +1,63 @@
+@font-face {
+    font-family: balatront;
+    src: url(../assets/fonts/balatro.otf.woff2);
+  }
+
+.shuffle-button {
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
+}
+
+.shuffle-button:focus, .shuffle-button:active {
+    border: none;
+    outline: none;
+}
+
+/* IF USING FULL IMAGE AS CARD */
+.card-image {
+    height: 20rem;
+    width: 18rem;
+    object-fit: cover;
+}
+
+.card-image:hover {
+    transform: scale(1.03);
+}
+
+/* IF USING REGULAR CARDS (COMMENTED CODE IN CARDS.JSX) */
+.card {
+    font-family: balatront, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #2E6552;
+    max-width: 20rem;
+    padding: 2.2rem 1.1rem;
+    border-radius: 1rem;
+    border: 3px solid #17402F;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.card img{
+    background-color: #17402F;
+    height: 15rem;
+    width: 14rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    box-shadow: inset 2px 2px 20px #286348;
+    /* max-height: 30rem; */
+}
+
+.card-name {
+    align-self: self-start;
+    margin-top: 1rem;
+    margin-left: 0.5rem;
+    font-size: 2rem;
+    font-family: inherit;
+
+}
