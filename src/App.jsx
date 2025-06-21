@@ -5,13 +5,17 @@ import placeholderJoker from './assets/joker.gif'
 
 
 function App() {
+  const [clickedIds, setClickedIds] = useState(new Set);
+  const [bestScore, setBestScore] = useState(0)
   const [cards, setCards] = useState(Array(12).fill(null).map((_, index) => (
     {
       id: index,
       url: placeholderJoker,
       name: `plchldr-${index + 1}`
     }
-  )))
+  )));
+
+  let score = clickedIds.size;
 
   useEffect(() => {
     async function loadStickers() {
@@ -54,13 +58,38 @@ function App() {
     });
   }
 
+  function scorePoints(id) {
+    let tempSet = new Set(clickedIds)
+    if (!tempSet.has(id)) {
+      tempSet.add(id);
+    } else {
+      if (score > bestScore) {
+        setBestScore(score);
+      }
+      tempSet = new Set();
+      document.querySelector('.red-screen').classList.toggle('show')
+      setTimeout(() => {
+        document.querySelector('.red-screen').classList.toggle('show')
+      }, 700);
+    }
+    shuffleCards()
+    setClickedIds(tempSet)
+  }
+
   return (
     <>
-      <h1 className='game-title'>Balatro Balatrero Memoria</h1>
-      <h2 className='game-description'>Get balatro points by balatro clicking on a balatro image, but don't balatro click on any balatro more than balatro once!</h2>
+      <div className='red-screen'></div>
+      <section className='scores'>
+        <p className='current-score'>SCORE: {score}</p>
+        <p className='best-score'>BEST SCORE: {bestScore}</p>
+      </section>
+      <section className="game-info">
+        <h1 className='game-title'>{clickedIds.size === 12 ? 'YOU WON HAHA LOL' : 'Balatro Balatrero Memoria'}</h1>
+        <h2 className='game-description'>{clickedIds.size === 12 ? "I'm too lazy to make a win screen, just click any card to start over" : "Get balatro points by balatro clicking on a balatro image, but don't balatro click on any balatro more than balatro once!"}</h2>
+      </section>
       <section className='game-container'>
         {cards.map((card) => (
-          <Card key={card.id} image={card.url} name={card.name} onClick={shuffleCards} />
+          <Card key={card.id} image={card.url} name={card.name} onClick={() => scorePoints(card.id)} />
         ))}
       </section>
     </>
