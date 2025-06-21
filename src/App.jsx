@@ -92,6 +92,8 @@ function App() {
           <Card key={card.id} image={card.url} name={card.name} onClick={() => scorePoints(card.id)} />
         ))}
       </section>
+      <footer>This website is a fan-made project and is not affiliated with Balatro or its creators. All card images and game-related assets are the property of their 
+        respective copyright holders. This site is for personal, non-commercial use only, and no copyright infringement is intended.</footer>
     </>
   )
 }
