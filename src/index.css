@@ -16,6 +16,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
+  background-color: #213547;
   background-image: url("/src/assets/balatro-background.png");
   background-size: cover;
   background-position: center;
