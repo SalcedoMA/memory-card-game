@@ -60,7 +60,7 @@
 }
 
 /* FIX TOUCH INPUT ANIMATIONS */
-@media (hover: none) and (pointer: coarse) {
+@media (hover: none) {
     .card-image:hover {
         animation: none;
         transform: none;
