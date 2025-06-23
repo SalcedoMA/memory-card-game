@@ -38,21 +38,23 @@
     }
 }
 
-.card-image:hover {
-    transition: transform 0.05s ease-in;
-    transform: scale(1.05);
-    animation: ease-in-out 0.01s shake infinite alternate;
-    animation-delay: 2s;
-}
-
-@keyframes shake {
-  from {
-    transform: scale(1.05) rotate(1deg);
-  }
-
-  to {
-    transform: scale(1.05) rotate(-1deg);
-  }
+@media (hover: hover), (pointer: fine) {
+    .card-image:hover {
+        transition: transform 0.05s ease-in;
+        transform: scale(1.05);
+        animation: ease-in-out 0.01s shake infinite alternate;
+        animation-delay: 2s;
+    }
+    
+    @keyframes shake {
+      from {
+        transform: scale(1.05) rotate(1deg);
+      }
+    
+      to {
+        transform: scale(1.05) rotate(-1deg);
+      }
+    }
 }
 
 .card-image:active {
@@ -60,21 +62,21 @@
 }
 
 /* FIX TOUCH INPUT ANIMATIONS */
-@media (hover: none) {
+@media (hover: none), (pointer: coarse) {
     .card-image:hover {
         animation: none;
         transform: none;
     }
 
     .card-image:active {
-        /* transition: transform 0.05s ease-in 0.15s;
+        transition: transform 0.05s ease-in 0.15s;
         transform: scale(1.05);
         animation: ease-in-out 0.01s shake infinite alternate;
-        animation-delay: 1.5s; */
-        filter: none;
+        animation-delay: 1.5s;
+        /* filter: none; */
     }
 
-    /* @keyframes shake {
+    @keyframes shake {
         from {
           transform: scale(1.05) rotate(1deg);
           filter: none;
@@ -84,7 +86,7 @@
           transform: scale(1.05) rotate(-1deg);
           filter: none;
         }
-      } */
+      }
 }
 
 /* IF USING REGULAR CARDS (COMMENTED CODE IN CARDS.JSX) */
