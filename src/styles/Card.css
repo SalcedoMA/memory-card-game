@@ -8,6 +8,7 @@
     margin: 0;
     background: none;
     border: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);;   
 }
 
 .shuffle-button:focus, .shuffle-button:active {
@@ -21,6 +22,20 @@
     width: 18rem;
     object-fit: cover;
     transition: transform 0.15s ease-in;
+}
+
+/* @media (max-width: 700px) {
+    .card-image {
+        width: 10rem;
+        height: 12rem;
+    }
+} */
+
+@media (max-width: 700px) {
+    .card-image {
+        width: 6rem;
+        height: 8rem;
+    }
 }
 
 .card-image:hover {
@@ -42,6 +57,34 @@
 
 .card-image:active {
     filter: invert(1);
+}
+
+/* FIX TOUCH INPUT ANIMATIONS */
+@media (hover: none) and (pointer: coarse) {
+    .card-image:hover {
+        animation: none;
+        transform: none;
+    }
+
+    .card-image:active {
+        transition: transform 0.05s ease-in 0.15s;
+        transform: scale(1.05);
+        animation: ease-in-out 0.01s shake infinite alternate;
+        animation-delay: 1.5s;
+        /* filter: none; */
+    }
+
+    /* @keyframes shake {
+        from {
+          transform: scale(1.05) rotate(1deg);
+          filter: none;
+        }
+      
+        to {
+          transform: scale(1.05) rotate(-1deg);
+          filter: none;
+        }
+      } */
 }
 
 /* IF USING REGULAR CARDS (COMMENTED CODE IN CARDS.JSX) */

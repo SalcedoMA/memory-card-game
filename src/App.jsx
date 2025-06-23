@@ -76,17 +76,24 @@ function App() {
     setClickedIds(tempSet)
   }
 
+  document.querySelectorAll('.shuffle-button').forEach((button) => {
+      button.addEventListener('contextmenu', event => {
+      event.preventDefault();
+    })
+  })
+
   return (
     <>
       <div className='red-screen'></div>
-      <section className='scores'>
-        <p className='current-score'>SCORE: {score}</p>
-        <p className='best-score'>BEST SCORE: {bestScore}</p>
-      </section>
       <section className="game-info">
         <h1 className='game-title'>{clickedIds.size === 12 ? 'YOU WON HAHA LOL' : 'Balatro Balatrero Memoria'}</h1>
         <h2 className='game-description'>{clickedIds.size === 12 ? "I'm too lazy to make a win screen, just click any card to start over" : "Get balatro points by balatro clicking on a balatro image, but don't balatro click on any balatro more than balatro once!"}</h2>
+        <section className='scores'>
+          <p className='current-score'>SCORE: {score}</p>
+          <p className='best-score'>BEST SCORE: {bestScore}</p>
       </section>
+      </section>
+
       <section className='game-container'>
         {cards.map((card) => (
           <Card key={card.id} image={card.url} name={card.name} onClick={() => scorePoints(card.id)} />

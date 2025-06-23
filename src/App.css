@@ -12,23 +12,10 @@
   font-size: 1.5rem;
   padding: 1rem 0;
   margin: 0rem 0rem -3rem 2rem;
+  text-align: left;
 }
 
-@media (max-width: 1500px) {
-  .game-container {
-    grid-template-columns: repeat(4, max-content);
-  }
 
-  .game-info {
-    padding: 0rem 2rem;
-  }
-
-  .scores {
-    position: relative;
-    text-align: center;
-    padding-bottom: 0rem;
-  }
-}
 
 .red-screen.show {
   display: block;
@@ -45,15 +32,39 @@
   }
 }
 
+@media (max-width: 1500px) {
+  .game-container {
+    grid-template-columns: repeat(4, max-content);
+  }
+
+  .game-info {
+    padding: 0rem 2rem;
+  }
+
+  .scores {
+    position: relative;
+    text-align: center;
+    padding-bottom: 0rem;
+  }
+
+  footer {
+    padding-bottom: 1rem;
+  }
+}
+
 @media (max-width: 1200px) {
   .game-container {
     grid-template-columns: repeat(3, max-content);
   }
+
+  footer {
+    padding-bottom: 1rem;
+  }
 }
 
 @media (max-width: 700px) {
-  .game-container {
-    grid-template-columns: repeat(2, max-content);
+  .game-info {
+    font-size: 0.8rem;
   }
 }
 
@@ -70,7 +81,7 @@
   display: none;
   width: 100vw;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   /* background-color: #A23D36; */
   top: 0;
   opacity: 1;
@@ -79,6 +90,7 @@
 
 footer {
   text-align: center;
-  padding: 2rem 1rem 0 1rem;
+  padding: 2rem 1rem orem 1rem;
   font-size: 0.75rem;
 }
+
